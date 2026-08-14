@@ -3,106 +3,158 @@ import Layout from '../components/layout.astro';
 ---
 
 <style>
-.steps {
-  background: var(--light);
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: min(90vw, 250px);
+.hero,
+.section {
+  width: min(92vw, 980px);
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 2rem 0 1rem;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  margin-bottom: 0.75rem;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0 auto 1.5rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 3rem;
-  padding: 5rem 5vw;
-  width: 100vw;
+  gap: 0.75rem;
 }
 
-@media (min-width: 550px) {
-  .steps {
-    grid-template-columns: repeat(2, min(calc(50% - 1rem), 250px));
-  }
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 1.5rem;
 }
 
-@media (min-width: 1050px) {
-  .steps {
-    grid-template-columns: repeat(4, min(calc(25% - 1.5rem), 250px));
-  }
-}
-
-.step {
+.card {
   background: var(--white);
   border: 1px solid var(--lightBorder);
   border-radius: var(--card-radius);
-  display: flex;
-  flex-direction: column;
-  font-size: 0.75rem;
-  padding: 1rem 1.5rem 1.5rem;
-  text-align: left;
+  padding: 1.25rem;
   box-shadow: 0 2px 4px rgb(14 30 37 / 12%);
 }
 
-.stepHeading {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0;
+.card h3 {
+  margin-top: 0;
 }
 
+.section {
+  padding: 1.5rem 0;
+}
 
+.section h2 {
+  text-align: center;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.skills li {
+  background: var(--white);
+  border: 1px solid var(--lightBorder);
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
 </style>
 
 <Layout
-  title="Netlify Feature Tour"
-  description="This is a small site to show the most powerful features of Netlify quickly!"
+  title="Dan Partain — IT & Networking Portfolio"
+  description="Hands-on networking, systems administration, troubleshooting, Linux, Windows Server, and home-lab projects."
   home
 >
-  <main class="steps">
-    <section class="step">
-      <h2 class="stepHeading">Deploy Previews</h2>
+  <main>
+    <section class="hero">
+      <h2>Building real-world IT and networking skills through hands-on labs.</h2>
       <p>
-        Every pull request is automatically built in an
-        identical-to-production environment for
-        <strong>painless QA, feedback, and review.</strong>
+        I am focused on IT support and networking, with current work centered on CCNA preparation,
+        Cisco configuration, network troubleshooting, Linux, Windows Server, and home-lab infrastructure.
       </p>
-      <a href="/deploy-previews" class="button">
-        Learn more <span class="sr-only">about Deploy Previews</span>
-      </a>
+      <div class="actions">
+        <a class="button" href="https://github.com/dansystems316">View GitHub</a>
+      </div>
     </section>
 
-    <section class="step">
-      <h2 class="stepHeading">Instant Rollbacks</h2>
-      <p>
-        Confidently ship to production with the knowledge that it’s a
-        one-click operation to roll back to a previous version of the site.
-        <strong>Instant disaster recovery!</strong>
-      </p>
-      <a href="/instant-rollbacks" class="button">
-        Learn more
-        <span class="sr-only">about Instant Rollbacks</span>
-      </a>
+    <section class="section">
+      <h2>Current Focus</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>CCNA & Cisco</h3>
+          <p>VLANs, trunks, STP, EtherChannel, OSPF, ACLs, NAT, DHCP, IPv4/IPv6, and verification commands.</p>
+        </article>
+        <article class="card">
+          <h3>Network Troubleshooting</h3>
+          <p>Layer-by-layer troubleshooting using Cisco IOS, Wireshark, addressing checks, routing tables, and protocol verification.</p>
+        </article>
+        <article class="card">
+          <h3>Windows & Linux</h3>
+          <p>Windows Server, Active Directory concepts, Linux administration, networking tools, SSH, and system troubleshooting.</p>
+        </article>
+        <article class="card">
+          <h3>Home Lab</h3>
+          <p>Hands-on work with routers, switches, virtualization, Raspberry Pi, smart-home infrastructure, and network services.</p>
+        </article>
+      </div>
     </section>
 
-    <section class="step">
-      <h2 class="stepHeading">Netlify Functions</h2>
-      <p>
-        <strong>Serverless functions are superpowers for web developers!</strong>
-        Securely handle server-like requirements at any scale with no
-        provisioning, scaling, or ops overhead.
-      </p>
-      <a href="/functions" class="button">
-      Learn more
-      <span class="sr-only">about Netlify Functions</span>
-      </a>
+    <section class="section">
+      <h2>Technical Skills</h2>
+      <ul class="skills">
+        <li>Cisco IOS</li>
+        <li>VLANs</li>
+        <li>802.1Q</li>
+        <li>STP / RSTP</li>
+        <li>EtherChannel / LACP</li>
+        <li>OSPF</li>
+        <li>IPv4 / IPv6</li>
+        <li>DHCP</li>
+        <li>NAT / PAT</li>
+        <li>ACLs</li>
+        <li>Wireshark</li>
+        <li>Linux</li>
+        <li>Windows Server</li>
+        <li>Git / GitHub</li>
+      </ul>
     </section>
 
-    <section class="step">
-      <h2 class="stepHeading">Netlify Forms</h2>
-      <p>
-        Handle user input with a single line of code. Netlify Forms allow
-        any HTML form to
-        <strong>
-            accept submissions, send notification emails, and trigger custom events.
-        </strong>
-      </p>
-      <a href="/netlify-forms" class="button">
-        Learn more <span class="sr-only">about Netlify Forms</span>
-      </a>
+    <section class="section">
+      <h2>How I Document Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Build</h3>
+          <p>Define the objective, topology, addressing plan, and technologies used.</p>
+        </article>
+        <article class="card">
+          <h3>Configure</h3>
+          <p>Record the relevant commands and explain why each configuration is needed.</p>
+        </article>
+        <article class="card">
+          <h3>Verify</h3>
+          <p>Use show commands, packet captures, and connectivity testing to prove the solution works.</p>
+        </article>
+        <article class="card">
+          <h3>Troubleshoot</h3>
+          <p>Document failures, root cause, corrective action, and what I learned from the problem.</p>
+        </article>
+      </div>
     </section>
   </main>
 </Layout>
